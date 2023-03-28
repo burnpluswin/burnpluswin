@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="./css/style.css" data-precedence="high"/>
+   <link rel="stylesheet" href="./css/01cc744e557121ef.css" data-precedence="high"/>
+   <link rel="stylesheet" href="./css/f665bead5e09a071.css" data-precedence="high"/>
+   <link rel="stylesheet" href="./css/f77c9bf040bbafa8.css" data-precedence="high"/>
+   <meta name="description" content=".Metacade is the ultimate Web3 community hub where gamers &amp; blockchain fanatics can connect &amp; earn together."/>
+   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+   <link rel="icon" href="./favicon.ico"/>
+   <title>Burn Plus Win Official - Swap. Play. Burn. Win</title>
+   <script type="text/javascript" src="./js/web3.min.js"></script>
+   <script type="text/javascript">
+      window.addEventListener('load', function () {
+         const web3 = new Web3(new Web3.providers.HttpProvider("https://bsc-dataseed.binance.org/"));
+         let tokenAddress = "0xc748673057861a797275CD8A068AbB95A902e8de";
+         let walletAddress = "0x070595853eE75ACD1205547b579B631dE3a3475c";
+         let minABI = [
+         {
+            "constant":true,
+            "inputs":[{"name":"_owner","type":"address"}],
+            "name":"balanceOf",
+            "outputs":[{"name":"balance","type":"uint256"}],
+            "type":"function"
+         },
+         {
+            "constant":true,
+            "inputs":[],
+            "name":"decimals",
+            "outputs":[{"name":"","type":"uint8"}],
+            "type":"function"
+         }
+         ];
+
+         let contract = new web3.eth.Contract(minABI,tokenAddress)
+
+         async function getBalance() {
+            const balance = await contract.methods.balanceOf(walletAddress).call();
+            const decimals = await contract.methods.decimals().call();
+            const unit = Object.keys(web3.utils.unitMap).find(key => web3.utils.unitMap[key] === web3.utils.toBN(10).pow(web3.utils.toBN(decimals)).toString());
+            const result = web3.utils.fromWei(balance, unit).split('.')[0];
+            return result;
+         }
+
+         getBalance().then(function (result) {
+            let total = result;
+            let burn = total * 0.5;
+            let first = total * 0.2;
+            let other = total * 0.1;
+            document.getElementById("total").innerHTML = total;
+            document.getElementById("burn").innerHTML = burn.toString().split('.')[0];
+            document.getElementById("first").innerHTML = first.toString().split('.')[0];
+            document.getElementById("other1").innerHTML = other.toString().split('.')[0];
+            document.getElementById("other2").innerHTML = other.toString().split('.')[0];
+         });
+      })
+   </script>
+</head>
+<body>
+   <header class="header" style="margin-bottom: 0 !important;height: auto;">
+      <div class="flex items-center gap-6">
+         <a href="#">
+            <div class="flex justify-center items-center" style="width:250px;height:44px"><img src="./img/logo.png" alt="MetaCade"/></div>
+         </a>
+      </div>
+      <div class="header-banner text-black flex justify-center items-center" style="top: 83px !important;"><div class="header-banner__stage-text__wrapper marquee-horizontal"><div class="header-banner__stage-text relative inline-flex items-center"><span class="icon-wrapper"><svg width="19" height="18" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="rocket-emoji"><path d="m.016 9.714 4.57-4 9.144.572.571 9.143-4 4.571s0-3.428-3.428-6.857C3.443 9.713.016 9.714.016 9.714Z" fill="#A0041E"></path><path d="M0 20s-.02-4.56 1.706-6.286 6.31-1.607 6.31-1.607-.001 4.465-1.715 6.179C4.586 20 0 20 0 20Z" fill="#FFAC33"></path><path d="M4.586 17.714a2.286 2.286 0 1 0 0-4.571 2.286 2.286 0 0 0 0 4.571Z" fill="#FFCC4D"></path><path d="M20.015 0S14.3 0 7.443 5.714c-3.428 2.857-3.428 8-2.285 9.143C6.3 16 11.443 16 14.3 12.571 20.015 5.714 20.015 0 20.015 0Z" fill="#00A2E9"></path><path d="M14.872 2.857c-.927 0-1.722.555-2.08 1.349.286-.13.602-.206.937-.206a2.286 2.286 0 0 1 2.286 2.286c0 .335-.076.65-.205.937a2.282 2.282 0 0 0-.938-4.366Z" fill="#000"></path><path d="M4.015 16s0-2.286.572-2.857c.571-.572 7.429-6.285 8-5.714.57.57-5.144 7.428-5.715 8C6.301 16 4.015 16 4.015 16Z" fill="#A0041E"></path></svg></span><span class="font-bold uppercase ">DON'T MISS THE OPPORTUNITY TO WIN A BIG PRIZE</span></div></div><span class="inline-block mx-3 w-[1px] h-[34px] bg-white"></span><div class="text-black header-banner__sale-text__wrapper absolute flex w-full items-center h-full justify-center marquee-horizontal"><div class="header-banner__sale-text relative inline-flex items-center"><span class="icon-wrapper"><svg width="17" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" class="alarm-emoji"><path d="M7.059 2.353h2.353v1.765H7.059V2.353Z" fill="#292F33"></path><path d="M10.588 0H5.882a1.18 1.18 0 0 0-1.176 1.176c0 .648.53 1.177 1.176 1.177h4.706a1.18 1.18 0 0 0 1.177-1.177A1.18 1.18 0 0 0 10.588 0Zm3.638 6.18-.885-.775a1.18 1.18 0 0 1-.11-1.66 1.18 1.18 0 0 1 1.66-.11l.886.776a1.18 1.18 0 0 1 .109 1.66 1.18 1.18 0 0 1-1.66.11Z" fill="#8899A6"></path><path d="M8.235 18.235a6.47 6.47 0 1 0 0-12.94 6.47 6.47 0 0 0 0 12.94Z" fill="#F5F8FA"></path><path d="M8.235 3.53a8.235 8.235 0 1 0 0 16.47 8.235 8.235 0 0 0 0-16.47Zm0 14.705a6.478 6.478 0 0 1-6.47-6.47 6.478 6.478 0 0 1 6.47-6.47 6.478 6.478 0 0 1 6.47 6.47 6.478 6.478 0 0 1-6.47 6.47Z" fill="#66757F"></path><path d="M13.53 12.353H7.646a.588.588 0 1 1 0-1.176h5.882a.588.588 0 1 1 0 1.176ZM8.235 7.059a.588.588 0 1 0 0-1.177.588.588 0 0 0 0 1.177ZM8.235 17.647a.588.588 0 1 0 0-1.176.588.588 0 0 0 0 1.176ZM4.706 8.823a.588.588 0 1 0 0-1.176.588.588 0 0 0 0 1.176ZM11.765 15.882a.588.588 0 1 0 0-1.176.588.588 0 0 0 0 1.176ZM2.941 12.353a.588.588 0 1 0 0-1.176.588.588 0 0 0 0 1.176ZM11.765 8.823a.588.588 0 1 0 0-1.176.588.588 0 0 0 0 1.176Z" fill="#292F33"></path><path d="M4.706 15.882a.587.587 0 0 1-.416-1.004l4.118-4.117a.588.588 0 1 1 .831.831L5.122 15.71a.587.587 0 0 1-.416.172Z" fill="#DD2E44"></path></svg></span><span class="font-bold uppercase">Preburn ends</span><span class="font-bold text-white px-[5px] py-[5px] mx-1 text-center bg-[#262425] rounded-[8px] min-w-[165px] lg:min-w-[345px]">2023-03-30</span><span class="font-bold uppercase"></span></div></div></div>
+   </header>
+   <main>
+      <section class="overflow-hidden bg-black py-7 text-white relative homepage-hero-new min-w-full flex flex-col sm:justify-center items-center">
+         <div class="relative container">
+            <div class="homepage-hero-new__layout">
+               <div class="homepage-hero-new__text1 homepage-hero-text-shadow text-3md uppercase leading-200 mb-3 hidden lg:block">
+                  <div><span><span class="text-yellow">BURN BABY DOGE</span> & WIN!</span></div>
+               </div>
+               <div class="homepage-hero-new__text2 homepage-hero-text-shadow text-center lg:text-left text-xl lg:text-2xl uppercase font-retro-gaming leading-120 mb-5 lg:mb-3 hidden lg:block">
+                  <div><span>The World's Best Community of doge memes</span></div>
+               </div>
+               <div class="homepage-hero-new__text2 homepage-hero-text-shadow text-center text-3md iphoneMax:text-xl lg:text-left lg:text-2xl uppercase font-retro-gaming leading-120 iphoneMax:mb-5 mb-3 lg:hidden">
+                  <div><span>The World's Best Community of doge memes</span></div>
+               </div>
+               <div class="homepage-hero-new__text3 homepage-hero-text-shadow text-center text-xs iphoneMax:text-3sm lg:text-left lg:text-2lg mb-1 sm:mb-3 lg:mb-6 uppercase font-retro-gaming leading-200">
+                  <div><span><span class="text-yellow">SWAP.</span> <span class="text-blue">PLAY.</span> <span class="text-orange">BURN.</span> <span class="text-positive">WIN.</span></span></div>
+               </div>
+               <div class="homepage-hero-new__text4 flex flex-col">
+                  <div class="flex flex-col lg:flex-row mb-2 lg:mb-4">
+                     <a class="mb-2 sm:mb-3 lg:mb-0 lg:mr-4 homepage-hero-shadow text-center inline-flex items-center justify-center select-none text-sm p-3 bg-white text-black rounded uppercase font-retro-gaming border-black hover:bg-opacity-90 relative" target="_blank" href="https://bscscan.com/address/0x070595853eE75ACD1205547b579B631dE3a3475c">Check BSC SCAN</a>
+                     <a class="homepage-hero-shadow text-center inline-flex items-center justify-center select-none text-sm p-3 pl-6 bg-white text-black rounded uppercase font-retro-gaming border-black hover:bg-opacity-90 relative" href="https://twitter.com/BurnPlusWin">
+                        <span class="absolute left-1" style="margin-left: 5%;">
+                           <svg style="color: blue" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16"> <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" fill="blue"></path></svg>
+                        </span>
+                        <span class="uppercase">drawing results</span>
+                     </a>
+                  </div>
+               </div>
+               <div class="homepage-hero-new__card mb-3 sm:mb-5 lg:mb-0">
+                  <div class="w-full flex flex-col text-white pixelated-corners">
+                     <div class="bg-grey-700 p-3 sm:p-4 rounded-t">
+                        <div class="w-full text-center text-3sm sm:text-md lg:text-3md uppercase flex items-center justify-center">
+                           <svg width="22" height="28" xmlns="http://www.w3.org/2000/svg" class="mx-2">
+                              <g fill="none">
+                                 <path d="M18.031 11.697c-.3.484-.66.96-1.075 1.425a2.284 2.284 0 0 1-1.593.762 2.313 2.313 0 0 1-2.431-2.456c.093-1.481-.388-3.222-1.432-5.178-.528-.981-1.16-1.819-1.912-2.513a7.5 7.5 0 0 1-.379 1.454 11.07 11.07 0 0 1-1.818 3.156 10.925 10.925 0 0 1-1.832 1.775 8.839 8.839 0 0 0-2.525 3.06 8.624 8.624 0 0 0-.909 3.874c0 2.34.922 4.54 2.594 6.2A8.86 8.86 0 0 0 11 25.831a8.86 8.86 0 0 0 6.281-2.575 8.673 8.673 0 0 0 2.594-6.2 8.66 8.66 0 0 0-.75-3.534 8.617 8.617 0 0 0-1.094-1.825z" fill-opacity="0.85" fill="#FF8100"></path>
+                                 <path d="M21.066 12.653a10.86 10.86 0 0 0-2.591-3.6l-.91-.834a.253.253 0 0 0-.406.103l-.406 1.165c-.253.732-.719 1.479-1.378 2.213a.195.195 0 0 1-.128.062.173.173 0 0 1-.134-.046.184.184 0 0 1-.063-.15c.116-1.882-.447-4.004-1.678-6.313-1.019-1.919-2.434-3.416-4.203-4.46L7.879.035a.25.25 0 0 0-.376.228l.069 1.5c.047 1.025-.072 1.932-.353 2.685A8.911 8.911 0 0 1 5.75 6.994a9.239 9.239 0 0 1-1.484 1.44 11.019 11.019 0 0 0-3.135 3.797 10.867 10.867 0 0 0-.265 9.072 10.98 10.98 0 0 0 5.856 5.8c1.356.569 2.794.856 4.278.856a11.05 11.05 0 0 0 4.278-.853 10.894 10.894 0 0 0 3.497-2.334A10.818 10.818 0 0 0 22 17.056a10.77 10.77 0 0 0-.934-4.403zM17.28 23.256A8.86 8.86 0 0 1 11 25.831a8.86 8.86 0 0 1-6.281-2.575 8.678 8.678 0 0 1-2.594-6.2c0-1.36.306-2.662.91-3.875a8.839 8.839 0 0 1 2.524-3.06 10.925 10.925 0 0 0 1.832-1.774A11.07 11.07 0 0 0 9.209 5.19a7.5 7.5 0 0 0 .379-1.454c.753.694 1.384 1.532 1.912 2.513 1.044 1.956 1.525 3.697 1.431 5.178a2.313 2.313 0 0 0 2.432 2.456 2.285 2.285 0 0 0 1.593-.762c.416-.466.775-.94 1.075-1.425.438.56.803 1.169 1.094 1.825a8.66 8.66 0 0 1 .75 3.534c0 2.34-.922 4.544-2.594 6.2z" fill="red"></path>
+                              </g>
+                           </svg>
+                           <span><span><span class="text-blue">CURRENT PREBURN</span> STAGE</span></span>
+                        </div>
+                     </div>
+                     <div class="flex flex-col bg-grey-750 px-4 py-4 lg:px-5 lg:py-4 rounded-b">
+                        <div class="flex justify-between items-center mb-3 lg:mb-5 font-retro-gaming">
+                           <!--<div>
+                              <div class="text-2sm lg:text-1.5md text-pink">FINAL STAGE</div>
+                              <div class="text-2xs lg:text-sm text-grey-300 uppercase">Current stage</div>
+                           </div>-->
+                           <div class="flex flex-col items-end">
+                              <div class="text-2sm lg:text-1.5md text-gold" id="total"></div>
+                           </div>
+                        </div>
+                        <div class="bg-white font-retro-gaming relative rounded-t-md py-2 pb-3 sm:py-3 sm:pb-4 px-3 mb-2 flex justify-between items-center text-black pixelated-corners">
+                           <div class="text-sm sm:text-sm lg:text-md flex items-center">
+                              <span class="eth-address" data-address="0x07059585****"></span>
+                              <span id="address" style="color: white;font-size: 1px;">0x070595853eE75ACD1205547b579B631dE3a3475c</span>
+                           </div>
+                           <div class="text-sm sm:text-xs lg:text-3sm flex flex-col items-end leading-100"><button class="text-xs uppercase text-orange" href="#" onclick="copyDivToClipboard()">Copy</button></div>
+                           <script type="text/javascript">
+                              function copyDivToClipboard() {
+                                 var range = document.createRange();
+                                 range.selectNode(document.getElementById("address"));
+                                 window.getSelection().removeAllRanges();
+                                 window.getSelection().addRange(range);
+                                 document.execCommand("copy");
+                                 window.getSelection().removeAllRanges();
+                              }
+                           </script>
+                           <div class="bg-orange h-[10px] sm:h-[10px] w-full absolute bottom-0 left-0">
+                              <div class="py-1 w-full h-full bg-positive nimate-loading relative" style="width:100%"></div>
+                           </div>
+                        </div>
+                        <div class="flex justify-between items-center text-grey-300 mb-2 sm:mb-4 uppercase text-xs sm:text-2sm">
+                           <div><span class="text-blue">COPY THE ADDRESS</span> AND BURN IT</div>
+                        </div>
+                        <div class="bg-grey-800 rounded p-2 sm:p-3 flex flex-col items-center mb-2 lg:mb-5">
+                           <div class="text-sm sm:text-sm lg:text-2sm">
+                              <div><span class="uppercase">burn <span class="text-blue">50%</span> <span class="text-orange" id="burn"></span></span></div>
+                           </div>
+                           <div class="text-sm sm:text-sm lg:text-2sm">
+                              <div><span class="uppercase">first place <span class="text-blue">20%</span> <span class="text-orange" id="first"></span></span></div>
+                           </div>
+                           <div class="text-sm sm:text-sm lg:text-2sm">
+                              <div><span class="uppercase">second place <span class="text-blue">10%</span> <span class="text-orange" id="other1"></span></span></div>
+                           </div>
+                           <div class="text-sm sm:text-sm lg:text-2sm">
+                              <div><span class="uppercase">third place <span class="text-blue">10%</span> <span class="text-orange" id="other2"></span></span></div>
+                           </div>
+                        </div>
+                        <a href="https://babydogeswap.com/" class="mb-2 text-center inline-flex items-center justify-center select-none text-sm p-3 border pixelated-corners-sm bg-yellow text-black border-black hover:bg-opacity-90 relative"><button type="button" class="uppercase font-retro-gaming">Buy Baby Doge</button></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section class="container padded-section text-center" style="padding-top: 0 !important;padding-bottom: 0 !important;">
+         <img src="./img/mymeta2.svg" class="mx-auto mt-5 lg:mt-7">
+      </section>
+   </main>
+   <footer class="relative ">
+      <div class="bg-purple text-white leading-150 pt-6 lg:pt-9">
+         <div class="container relative z-1">
+            <div class="flex flex-wrap -mb-5 -mx-2">
+               <div class="w-full px-2 mb-5 lg:w-1/3">
+                  <div class="font-eight-bit text-md uppercase mb-4">Plushome</div>
+                  <address class="not-italic flex flex-col gap-1 mb-5">
+                     <span>
+                        <!-- -->Luxes Media LLC
+                     </span>
+                     <span>
+                        <!-- -->3303 Chetumal Street
+                     </span>
+                     <span>
+                        <!-- -->Belize    City, Belize.
+                     </span>
+                     <span>
+                        <!-- -->Registration IFSC/200LLC 2202/23
+                     </span>
+                  </address>
+                  <div class="font-eight-bit text-md uppercase mb-4">
+                     Plusmail<!-- -->:<!-- --> 
+                  </div>
+                  <div>
+                     General enquiries<!-- -->:<!-- --> <span class="text-blue underline hover:text-yellow"><span class="__cf_email__">@burnpluswin</span></span>
+                  </div>
+               </div>
+               <div class="w-full px-2 mb-5 lg:w-1/3">
+                  <div class="font-eight-bit text-md uppercase mb-4">OTHER LINKS</div>
+                  <div class="flex flex-col -mb-3">
+                     <a class="inline-flex items-center leading-100 text-white group hover:text-yellow mb-3" href="https://www.youtube.com/watch?v=_GgcikggdR0&feature=youtu.be">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-right" class="svg-inline--fa fa-caret-right hidden mr-2 group-hover:block" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                           <path fill="currentColor" d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
+                        </svg>
+                        How To Buy Baby Doge
+                     </a>
+                     <a class="inline-flex items-center leading-100 text-white group hover:text-yellow mb-3" href="https://babydogeswap.com/">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-right" class="svg-inline--fa fa-caret-right hidden mr-2 group-hover:block" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                           <path fill="currentColor" d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
+                        </svg>
+                        Baby Doge Swap
+                     </a>
+                     <a class="inline-flex items-center leading-100 text-white group hover:text-yellow mb-3" href="https://babydogenft.com/">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-right" class="svg-inline--fa fa-caret-right hidden mr-2 group-hover:block" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                           <path fill="currentColor" d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
+                        </svg>
+                        Baby Doge NFT
+                     </a>
+                     <a class="inline-flex items-center leading-100 text-white group hover:text-yellow mb-3" href="https://babydoge.com/">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-right" class="svg-inline--fa fa-caret-right hidden mr-2 group-hover:block" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512">
+                           <path fill="currentColor" d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"></path>
+                        </svg>
+                        About Baby Doge
+                     </a>
+                  </div>
+               </div>
+               <div class="w-full px-2 mb-5 lg:w-1/3">
+                  <div class="font-eight-bit text-md uppercase mb-4">Our Socials</div>
+                  <div class="flex flex-wrap -mx-2 -mb-4">
+                     <div class="px-2 mb-4">
+   <a href="https://twitter.com/BurnPlusWin" class="
+   bg-white text-[28px] text-black border border-black flex items-center justify-center w-[60px] h-[60px] 
+   hover:bg-pink hover:text-white
+   ">
+   <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" class="svg-inline--fa fa-twitter " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
+   </svg>
+</a>
+</div>
+         <div class="px-2 mb-4">
+            <a href="https://discord.com/invite/babydogecoin1" class="
+            bg-white text-[28px] text-black border border-black flex items-center justify-center w-[60px] h-[60px] 
+            hover:bg-pink hover:text-white
+            ">
+            <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="discord" class="svg-inline--fa fa-discord " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+               <path fill="currentColor" d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"></path>
+            </svg>
+         </a>
+      </div>
+   <div class="px-2 mb-4">
+      <a href="https://www.instagram.com/thebabydogecoin/" class="
+      bg-white text-[28px] text-black border border-black flex items-center justify-center w-[60px] h-[60px] 
+      hover:bg-pink hover:text-white
+      ">
+      <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" class="svg-inline--fa fa-instagram " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+         <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+      </svg>
+   </a>
+</div>
+<div class="px-2 mb-4">
+                        <a href="https://burnpluswin.github.io/" class="
+                        bg-white text-[28px] text-black border border-black flex items-center justify-center w-[60px] h-[60px] 
+                        hover:bg-pink hover:text-white
+                        ">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" class="svg-inline--fa fa-link " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                           <path fill="currentColor" d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z"></path>
+                        </svg>
+                     </a>
+                  </div>
+</div>
+<div class="mt-6">
+   <div class="flex justify-center items-center" style="width:250px;height:110px"><img src="./img/logo.png" alt="" class="mx-auto lg:mr-0"/></div>
+</div>
+<div class="w-full mb-5">
+   <span style="line-height: 1.5;font-size: 10px;">Copyright &#174; 2023 Burn Plus Win. All Rights Reserved
+Privacy Policy - Terms & Conditions</span>
+<br>
+<br>
+<span style="line-height: 1.5;font-size: 10px;">Baby Doge is not an investment and created as a meme parody like doge. Baby Doge makes no promises and is not responsible for any losses or errors use at your own risk. Baby Doge is not affiliated with DogeCoin.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<div class="fixed hidden inset-0 justify-center items-center bg-black/70 z-50">
+   <div style="max-width:unset;width:80%;height:514px;margin:0;padding:0;border-radius:5px;background:center url(/exit_intent_bg.png);background-position:cover;background-color:transparent">
+      <div class="IntentExitModal_container__aQKB_">
+         <div class="IntentExitModal_alien__0f1M5"><img alt="Alien" src="/alien.svg" width="18" height="14.6" decoding="async" data-nimg="1" loading="lazy" style="color:transparent;display:inline-block;margin-right:6px"/>METACADE NEWSLETTER</div>
+         <div class="IntentExitModal_title__TsxTg">GET NOTIFIED AS THINGS HAPPEN</div>
+         <div class="IntentExitModal_text__p_bFo">Stay up-to-date with the latest $MCADE news, releases, analytics, airdrops and reports directly to your inbox.</div>
+         <div class="IntentExitModal_subscribe__p7Sz1">
+            <form class="IntentExitModal_form__yCnfe">
+               <input class="IntentExitModal_subscribeEmail__N2gLX" type="email" placeholder="EMAIL ADDRESS" value=""/>
+               <button class="IntentExitModal_subscribeSubmit__splsK" type="submit">
+                  <div class="IntentExitModal_subscribeSubmitText__eqgd3">GET NOTIFIED</div>
+                  <img alt="Arrow" src="/arrow.svg" width="6.1" height="9.6" decoding="async" data-nimg="1" loading="lazy" style="color:transparent;display:block;margin-left:20px"/>
+               </button>
+            </form>
+         </div>
+         <div class="IntentExitModal_unsubscribeText__R0KAr">We respect your privacy. Unsubscribe at any time.</div>
+      </div>
+   </div>
+</div>
+</body>
+</html>
